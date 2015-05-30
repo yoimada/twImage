@@ -3,7 +3,7 @@
 //javascript:(function(){var s=document.createElement('script');s.src='https://~~.js';document.body.appendChild(s);})()
 
 var t = new Array();
-AddArray("<h1>Twitter images - v1.0.2 </h1>",t);
+AddArray("<h1>Twitter images - v1.0.3 </h1>",t);
 AddArray("<div style='background-color:#FAA'><h1>pixiv</h1>",t);
 
 /*pixiv*/
@@ -14,7 +14,7 @@ if(arr.length!=0)
 	{
 		var r=arr[i].getAttribute("title");
 		if(r&&r.indexOf("pixiv")!=- 1)
-			AddArray("<a href='"+r+"'>"+r+"</a><BR>",t);
+			AddArray("<a href='"+r+"' target=_blank>"+r+"</a><BR>",t);
 	}
 }
 
