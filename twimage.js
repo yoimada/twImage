@@ -3,7 +3,7 @@
 //javascript:(function(){var s=document.createElement('script');s.src='https://~~.js';document.body.appendChild(s);})()
 
 var t = new Array();
-AddArray("<h1>Twitter images - v1.0.3 </h1>",t);
+AddArray("<h1>Twitter images - v1.0.4 </h1>",t);
 AddArray("<div style='background-color:#FAA'><h1>pixiv</h1>",t);
 
 /*pixiv*/
@@ -13,7 +13,7 @@ if(arr.length!=0)
 	for(var i=0;i<arr.length;i++)
 	{
 		var r=arr[i].getAttribute("title");
-		if(r&&r.indexOf("pixiv")!=- 1)
+		if(r&& (r.indexOf("pixiv")!=- 1) || (r.indexOf("twipple")!=- 1) )
 			AddArray("<a href='"+r+"' target=_blank>"+r+"</a><BR>",t);
 	}
 }
@@ -30,7 +30,8 @@ if(arr.length!=0)
 		for(var j=0;j<ch.length;j++)
 		{
 			v=ch[j].getAttribute("src");
-			if(v && v.lastIndexOf(":large")== -1)v+=":large";
+			//if(v && v.lastIndexOf(":large")== -1)v+=":large";
+			if(v && v.lastIndexOf(":large")== -1)v+=":orig";
 			AddArray("<img src="+v+"><BR>",t);
 		}
 	}
@@ -44,11 +45,12 @@ if(arr.length!=0)
 	for(var i=0;i<arr.length;i++)
 	{
 		v=arr[i].getAttribute("data-resolved-url-large");
-		if(v && v.lastIndexOf(":large")== -1)v+=":large";
+		//if(v && v.lastIndexOf(":large")== -1)v+=":large";
+		if(v && v.lastIndexOf(":large")== -1)v+=":orig";
 
 		if(arr[i].getAttribute("href"))
 		{
-			AddArray("<a href="+arr[i].getAttribute("href")+" target=_blank><img src="+v+"></a><BR>",t);
+			AddArray("<a href=https:"+arr[i].getAttribute("href")+" target=_blank><img src="+v+"></a><BR>",t);
 		}
 		else
 		{
@@ -81,9 +83,9 @@ if(arr.length!=0)
 		for(var j=0;j<u.length;j++)
 		{
 			v=u[j].getAttribute("data-url");
-			if(v && v.lastIndexOf(":large")== -1)
-				v+=":large";
-			AddArray("<a href="+u[j].getAttribute("href")+" target=_blank><img src="+v+"></a><BR>",t);
+			//if(v && v.lastIndexOf(":large")== -1)v+=":large";
+			if(v && v.lastIndexOf(":large")== -1)v+=":orig";
+			AddArray("<a href=https:"+u[j].getAttribute("href")+" target=_blank><img src="+v+"></a><BR>",t);
 		}
 	}
 	g.innerHTML="";
