@@ -3,6 +3,7 @@
 //javascript:(function(){var s=document.createElement('script');s.src='https://~~.js';document.body.appendChild(s);})()
 
 var t = new Array();
+AddArray("<html><head><meta http-equiv=\"Expires\" content=\"86400\"></head><body>",t);
 AddArray("<h1>Twitter images - v1.0.4 </h1>",t);
 AddArray("<div style='background-color:#FAA'><h1>pixiv</h1>",t);
 
@@ -91,7 +92,9 @@ if(arr.length!=0)
 	g.innerHTML="";
 }
 AddArray("</div><BR>endl",t);
+AddArray("</body></html>",t);
 d.writeln(t.join("\n"));
+d.close();
 }
 )();
 function AddArray(needle,array)
