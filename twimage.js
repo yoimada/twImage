@@ -33,7 +33,7 @@ if(arr.length!=0)
 			v=ch[j].getAttribute("src");
 			//if(v && v.lastIndexOf(":large")== -1)v+=":large";
 			if(v && v.lastIndexOf(":large")== -1)v+=":orig";
-			AddArray("<a href="+v+"><img src="+v+"></a><BR>",t);
+			AddArray("<a href="+v+" target=_blank><img src="+v+"></a><BR>",t);
 		}
 	}
 }
@@ -55,7 +55,7 @@ if(arr.length!=0)
 		}
 		else
 		{
-			AddArray("<a href="+v+"><img src="+v+"></a><BR>",t);
+			AddArray("<a href="+v+" target=_blank><img src="+v+"></a><BR>",t);
 		}
 	}
 }
