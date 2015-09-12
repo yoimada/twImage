@@ -3,8 +3,8 @@
 //javascript:(function(){var s=document.createElement('script');s.src='https://~~.js';document.body.appendChild(s);})()
 
 var t = new Array();
-AddArray("<html><head><meta http-equiv=\"Expires\" content=\"86400\"></head><body>",t);
-AddArray("<h1>Twitter images - v1.0.4 </h1>",t);
+AddArray("<html><body>",t);
+AddArray("<h1>Twitter images - v1.0.5 </h1>",t);
 AddArray("<div style='background-color:#FAA'><h1>pixiv</h1>",t);
 
 /*pixiv*/
@@ -33,7 +33,7 @@ if(arr.length!=0)
 			v=ch[j].getAttribute("src");
 			//if(v && v.lastIndexOf(":large")== -1)v+=":large";
 			if(v && v.lastIndexOf(":large")== -1)v+=":orig";
-			AddArray("<img src="+v+"><BR>",t);
+			AddArray("<a href="+v+"><img src="+v+"></a><BR>",t);
 		}
 	}
 }
@@ -55,7 +55,7 @@ if(arr.length!=0)
 		}
 		else
 		{
-			AddArray("<img src="+v+"><BR>",t);
+			AddArray("<a href="+v+"><img src="+v+"></a><BR>",t);
 		}
 	}
 }
