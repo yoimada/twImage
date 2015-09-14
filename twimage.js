@@ -4,7 +4,7 @@
 
 var t = new Array();
 AddArray("<html><body>",t);
-AddArray("<h1>Twitter images - v1.0.5 </h1>",t);
+AddArray("<h1>Twitter images - v1.0.6 </h1>",t);
 AddArray("<div style='background-color:#FAA'><h1>pixiv</h1>",t);
 
 /*pixiv*/
