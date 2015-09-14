@@ -14,7 +14,12 @@ if(arr.length!=0)
 	for(var i=0;i<arr.length;i++)
 	{
 		var r=arr[i].getAttribute("title");
-		if( r && ((r.indexOf("pixiv")!= -1) || (r.indexOf("twipple")!= -1)))
+		if( r && (
+				(r.indexOf("pixiv")!= -1) 
+				|| (r.indexOf("twipple")!= -1)
+				|| (r.indexOf("twitpic")!= -1)
+			 )
+		)
 			AddArray("<a href='"+r+"' target=_blank>"+r+"</a><BR>",t);
 	}
 }
