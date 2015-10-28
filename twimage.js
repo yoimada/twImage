@@ -4,7 +4,7 @@
 
 var t = new Array();
 AddArray("<html><body>",t);
-AddArray("<h1>Twitter images - v1.0.6 </h1>",t);
+AddArray("<h1>Twitter images - v2.0 </h1>",t);
 AddArray("<div style='background-color:#FAA'><h1>pixiv</h1>",t);
 
 /*pixiv*/
@@ -32,31 +32,48 @@ if(arr.length!=0)
 {
 	for(var i=0;i<arr.length;i++)
 	{
+		//link
+		pare=arr[i].parentNode.parentNode.parentNode.parentNode.getAttribute("href");
+		//img
 		var ch=arr[i].children;
 		for(var j=0;j<ch.length;j++)
 		{
 			v=ch[j].getAttribute("src");
-			//if(v && v.lastIndexOf(":large")== -1)v+=":large";
 			if(v && v.lastIndexOf(":large")== -1)v+=":orig";
-			AddArray("<a href="+v+" target=_blank><img src="+v+"></a><BR>",t);
+
+			if(pare)
+			{
+				AddArray("<a href=https://twitter.com"+pare+" target=_blank><img src="+v+"></a><BR>",t);
+			}
+			else
+			{
+				AddArray("<a href="+v+" target=_blank><img src="+v+"></a><BR>",t);
+			}
 		}
 	}
 }
 
+
 /*img*/
 AddArray("</div><div style='background-color:#AFA'><h1>img</h1>",t);
-var arr=document.getElementsByClassName("media-thumbnail");
+var arr=document.getElementsByClassName("js-old-photo");
 if(arr.length!=0)
 {
 	for(var i=0;i<arr.length;i++)
 	{
-		v=arr[i].getAttribute("data-resolved-url-large");
-		//if(v && v.lastIndexOf(":large")== -1)v+=":large";
+		//image
+		v=arr[i].getAttribute("data-image-url");
 		if(v && v.lastIndexOf(":large")== -1)v+=":orig";
 
-		if(arr[i].getAttribute("href"))
+		//link
+		//normal
+		pare=arr[i].parentNode.parentNode.parentNode.parentNode.parentNode.getAttribute("data-permalink-path");
+		//image-box
+		if(!pare) pare=arr[i].parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.getAttribute("data-permalink-path");
+
+		if(pare)
 		{
-			AddArray("<a href=https:"+arr[i].getAttribute("href")+" target=_blank><img src="+v+"></a><BR>",t);
+			AddArray("<a href=https://twitter.com"+pare+" target=_blank><img src="+v+"></a><BR>",t);
 		}
 		else
 		{
@@ -65,37 +82,10 @@ if(arr.length!=0)
 	}
 }
 
-AddArray("</div><div style='background-color:#AAF'><h1>hidden</h1>",t);
 var k=window.open();
 var d=k.document;
 if(!d){message.alert("fail to open Window");}
 
-/*hidden*/
-var arr=document.getElementsByClassName("has-cards");
-if(arr.length!=0)
-{
-	var g=d.createElement("div");
-	g.setAttribute("style","visibility:hidden");
-	d.body.insertBefore(g,null);
-	for(var i=0;i<arr.length;i++)
-	{
-		var s=d.createElement("div");
-		s.innerHTML=arr[i].getAttribute("data-expanded-footer");
-		g.appendChild(s);
-	}
-	var u=g.getElementsByClassName("media-thumbnail");
-	if(u.length!=0)
-	{
-		for(var j=0;j<u.length;j++)
-		{
-			v=u[j].getAttribute("data-url");
-			//if(v && v.lastIndexOf(":large")== -1)v+=":large";
-			if(v && v.lastIndexOf(":large")== -1)v+=":orig";
-			AddArray("<a href=https:"+u[j].getAttribute("href")+" target=_blank><img src="+v+"></a><BR>",t);
-		}
-	}
-	g.innerHTML="";
-}
 AddArray("</div><BR>endl",t);
 AddArray("</body></html>",t);
 d.writeln(t.join("\n"));
