@@ -25,18 +25,6 @@ if(arr.length!=0)
 	}
 }
 
-/*link data-expanded-url*/
-arr=document.getElementsByClassName("data-expanded-url");
-if(arr.length!=0)
-{
-	for(var i=0;i<arr.length;i++)
-	{
-		var r=arr[i].getAttribute("title");
-		if( r )
-			AddArray("<a href='"+r+"' target=_blank>"+r+"</a><BR>",t);
-	}
-}
-
 
 /*RT*/
 AddArray("</div><div style='background-color:#AFF'><h1>imageBox</h1>",t);
@@ -94,31 +82,6 @@ if(arr.length!=0)
 		}
 	}
 }
-
-/*RT Open link u-block*/
-AddArray("</div><div style='background-color:#DBB'><h1>RT</h1>",t);
-var arr=document.getElementsByClassName("u-block");
-if(arr.length!=0)
-{
-	for(var i=0;i<arr.length;i++)
-	{
-		//image
-		v=arr[i].getAttribute("src");
-		if ( !v ) continue;
-		//link
-		pare=arr[i].parentNode.parentNode.parentNode.parentNode.getAttribute("href");
-
-		if(pare)
-		{
-			AddArray("<a href=https://twitter.com"+pare+" target=_blank><img src="+v+"></a><BR>",t);
-		}
-		else
-		{
-			AddArray("<a href="+v+" target=_blank><img src="+v+"></a><BR>",t);
-		}
-	}
-}
-
 
 
 /*img*/
