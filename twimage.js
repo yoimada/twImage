@@ -26,37 +26,8 @@ if(arr.length!=0)
 }
 
 
-/*RT*/
-AddArray("</div><div style='background-color:#AFF'><h1>imageBox</h1>",t);
-
-var arr=document.getElementsByClassName("multi-photo");
-if(arr.length!=0)
-{
-	for(var i=0;i<arr.length;i++)
-	{
-		//link
-		pare=arr[i].parentNode.parentNode.parentNode.parentNode.getAttribute("href");
-		//img
-		var ch=arr[i].children;
-		for(var j=0;j<ch.length;j++)
-		{
-			v=ch[j].getAttribute("src");
-			if(v && v.lastIndexOf(":large")== -1)v+=":orig";
-
-			if(pare)
-			{
-				AddArray("<a href=https://twitter.com"+pare+" target=_blank><img src="+v+"></a><BR>",t);
-			}
-			else
-			{
-				AddArray("<a href="+v+" target=_blank><img src="+v+"></a><BR>",t);
-			}
-		}
-	}
-}
-
 /*RT js-quote-photo*/
-AddArray("</div><div style='background-color:#BDB'><h1>RT</h1>",t);
+AddArray("</div><div style='background-color:#AFF'><h1>RT</h1>",t);
 var arr=document.getElementsByClassName("js-quote-photo");
 if(arr.length!=0)
 {
