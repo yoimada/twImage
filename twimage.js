@@ -4,7 +4,7 @@
 
 var t = new Array();
 AddArray("<html><body>",t);
-AddArray("<h1>Twitter images - v2.0 </h1>",t);
+AddArray("<h1>Twitter images - v2.1 </h1>",t);
 AddArray("<div style='background-color:#FAA'><h1>pixiv</h1>",t);
 
 /*pixiv*/
@@ -24,6 +24,19 @@ if(arr.length!=0)
 			AddArray("<a href='"+r+"' target=_blank>"+r+"</a><BR>",t);
 	}
 }
+
+/*link data-expanded-url*/
+arr=document.getElementsByClassName("data-expanded-url");
+if(arr.length!=0)
+{
+	for(var i=0;i<arr.length;i++)
+	{
+		var r=arr[i].getAttribute("title");
+		if( r )
+			AddArray("<a href='"+r+"' target=_blank>"+r+"</a><BR>",t);
+	}
+}
+
 
 /*RT*/
 AddArray("</div><div style='background-color:#AFF'><h1>imageBox</h1>",t);
@@ -54,10 +67,63 @@ if(arr.length!=0)
 	}
 }
 
+/*RT js-quote-photo*/
+AddArray("</div><div style='background-color:#BDB'><h1>RT</h1>",t);
+var arr=document.getElementsByClassName("js-quote-photo");
+if(arr.length!=0)
+{
+	for(var i=0;i<arr.length;i++)
+	{
+		//image
+		v=arr[i].getAttribute("data-image-url");
+		if(v && v.lastIndexOf(":large")== -1)v+=":orig";
+
+		//link
+		//normal
+		pare=arr[i].parentNode.parentNode.parentNode.parentNode.parentNode.getAttribute("href");
+		//image-box
+		if(!pare) pare=arr[i].parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.getAttribute("href");
+
+		if(pare)
+		{
+			AddArray("<a href=https://twitter.com"+pare+" target=_blank><img src="+v+"></a><BR>",t);
+		}
+		else
+		{
+			AddArray("<a href="+v+" target=_blank><img src="+v+"></a><BR>",t);
+		}
+	}
+}
+
+/*RT Open link u-block*/
+AddArray("</div><div style='background-color:#DBB'><h1>RT</h1>",t);
+var arr=document.getElementsByClassName("u-block");
+if(arr.length!=0)
+{
+	for(var i=0;i<arr.length;i++)
+	{
+		//image
+		v=arr[i].getAttribute("src");
+		if ( !v ) continue;
+		//link
+		pare=arr[i].parentNode.parentNode.parentNode.parentNode.getAttribute("href");
+
+		if(pare)
+		{
+			AddArray("<a href=https://twitter.com"+pare+" target=_blank><img src="+v+"></a><BR>",t);
+		}
+		else
+		{
+			AddArray("<a href="+v+" target=_blank><img src="+v+"></a><BR>",t);
+		}
+	}
+}
+
+
 
 /*img*/
 AddArray("</div><div style='background-color:#AFA'><h1>img</h1>",t);
-var arr=document.getElementsByClassName("js-old-photo");
+var arr=document.getElementsByClassName("js-adaptive-photo");
 if(arr.length!=0)
 {
 	for(var i=0;i<arr.length;i++)
