@@ -19,6 +19,7 @@ if(arr.length!=0)
 				|| (r.indexOf("twipple")!= -1)
 				|| (r.indexOf("twitpic")!= -1)
 				|| (r.indexOf("nijie")!= -1)
+				|| (r.indexOf("moments")!= -1)
 			 )
 		)
 			AddArray("<a href='"+r+"' target=_blank>"+r+"</a><BR>",t);
