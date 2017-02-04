@@ -72,6 +72,9 @@ if(arr.length!=0)
 		pare=arr[i].parentNode.parentNode.parentNode.parentNode.parentNode.getAttribute("data-permalink-path");
 		//image-box
 		if(!pare) pare=arr[i].parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.getAttribute("data-permalink-path");
+		if(!pare) pare=arr[i].parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.getAttribute("data-permalink-path");
+		if(!pare) pare=arr[i].parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.getAttribute("data-permalink-path");
+		if(!pare) pare=arr[i].parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.getAttribute("data-permalink-path");
 
 		if(pare)
 		{
