@@ -4,7 +4,10 @@
 
 var t = new Array();
 AddArray("<html><body>",t);
-AddArray("<h1>Twitter images - v2.1 </h1>",t);
+AddArray("<h1>Twitter images - v2.2 </h1>",t);
+a = new Date();
+now = a.getFullYear() + "/" + (a.getMonth()+1) + "/" + a.getDay() + " " + a.getHours() + ":"+a.getMinutes();
+AddArray("<div align='right'>"+ now +"</div>",t);
 AddArray("<div style='background-color:#FAA'><h1>pixiv</h1>",t);
 
 /*pixiv*/
