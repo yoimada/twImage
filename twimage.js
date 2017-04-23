@@ -4,7 +4,7 @@
 
 var t = new Array();
 AddArray("<html><body>",t);
-AddArray("<h1>Twitter images - v2.2 </h1>",t);
+AddArray("<h1>Twitter images - v2.3 </h1>",t);
 a = new Date();
 now = a.getFullYear() + "/" + (a.getMonth()+1) + "/" + a.getDate() + " " + a.getHours() + ":"+a.getMinutes();
 AddArray("<div align='right'>"+ now +"</div>",t);
@@ -29,7 +29,24 @@ if(arr.length!=0)
 	}
 }
 
+/*moments*/
+AddArray("</div><div style='background-color:#AAF'><h1>moments</h1>",t);
+var arr=document.getElementsByClassName("MomentMediaItem-entity--image");
+if(arr.length!=0)
+{
+	for(var i=0;i<arr.length;i++)
+	{
+		//image
+		v=arr[i].getAttribute("src");
+        if (v) v=v.replace(":large",":orig");
+        if ( v && v.indexOf(":orig") == -1 ) v=v+":orig";
 
+		//link
+        //v2 = arr[i].getAttribute("data-media-id");
+		AddArray("<a href="+v+" target=_blank><img src="+v+"></a><BR>",t);
+	}
+}
+	
 /*RT js-quote-photo*/
 AddArray("</div><div style='background-color:#AFF'><h1>RT</h1>",t);
 var arr=document.getElementsByClassName("js-quote-photo");
