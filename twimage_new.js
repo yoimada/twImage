@@ -4,10 +4,11 @@
 
     a = new Date();
     now = a.getFullYear() + "/" + (a.getMonth() + 1) + "/" + a.getDate() + " " + a.getHours() + ":" + a.getMinutes();
-    title = a.getFullYear() + (a.getMonth() + 1) + a.getDate() + "_" + a.getHours() + ".html";
-    
+    //title = a.getFullYear() +""+ (a.getMonth() + 1) +""+ a.getDate() + "_" + a.getHours() + ".html";
+
     var t = new Array();
-    AddArray("<html><head><title>" + title + "</title></head><body>", t);
+    //AddArray("<html><head><title>" + title + "</title></head><body>", t);
+    AddArray("<html><body>", t);
     AddArray("<h1>Twitter images - v3.0 </h1>", t);
     AddArray("<div align='right'>" + now + "</div>", t);
     AddArray("<div style='background-color:#AFA'><h1>img</h1>", t);
