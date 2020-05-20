@@ -17,7 +17,12 @@
         {
             var url0 = arr[i].src;
             var img0 = "";
-            if ((url0.indexOf("abs-0.twimg.com") != -1) || (url0.indexOf("profile_images") != -1) )
+            if (
+                (url0.indexOf("abs-0.twimg.com") != -1) ||
+                (url0.indexOf("profile_images") != -1) ||
+                (url0.indexOf("amplify_video_thumb") != -1) ||
+                (url0.indexOf("semantic_core_img") != -1)
+            )
                 continue;
             if (url0.indexOf("format=jpg") != -1)
                 img0 = url0.replace(/format.+/, "format=jpg&name=orig");
