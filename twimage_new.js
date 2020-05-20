@@ -4,7 +4,7 @@
 
     var t = new Array();
     AddArray("<html><body>", t);
-    AddArray("<h1>Twitter images - v2.3 </h1>", t);
+    AddArray("<h1>Twitter images - v3.0 </h1>", t);
     a = new Date();
     now = a.getFullYear() + "/" + (a.getMonth() + 1) + "/" + a.getDate() + " " + a.getHours() + ":" + a.getMinutes();
     AddArray("<div align='right'>" + now + "</div>", t);
@@ -17,6 +17,8 @@
         {
             var url0 = arr[i].src;
             var img0 = "";
+            if ((url0.indexOf("abs-0.twimg.com") != -1) || (url0.indexOf("profile_images") != -1) )
+                continue;
             if (url0.indexOf("format=jpg") != -1)
                 img0 = url0.replace(/format.+/, "format=jpg&name=orig");
             else if (url0.indexOf("format=png") != -1)
