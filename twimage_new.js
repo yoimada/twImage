@@ -8,12 +8,10 @@
 
     var t = new Array();
     //AddArray("<html><head><title>" + title + "</title></head><body>", t);
-    AddArray("<html><body>", t);
-    AddArray("<h1>Twitter images - v3.0 </h1>", t);
-    AddArray("<div align='right'>" + now + "</div>", t);
-    AddArray("<div style='background-color:#AFA'><h1>img</h1>", t);
+    AddArray("<html><body><h1>Twitter images - v3.0 </h1><div align='right'>"+now+"</div><div style='background-color:#AFA'><h1>img</h1>", t);
 
     var arr = document.getElementsByClassName("css-9pa8cd");
+    var imgArr = new Array();
     if (arr.length != 0)
     {
         for (var i = 0; i < arr.length; i++)
@@ -37,6 +35,7 @@
                 img0 = url0.replace(/format.+/, "format=png&name=orig");
             else
                 img0 = url0;
+            imgArr.push(img0);
             AddArray("<img src=" + img0 + "><BR>", t);
         }
     }
@@ -45,6 +44,7 @@
     var d = k.document;
     if (!d) { message.alert("fail to open Window"); }
 
+    AddArray("<pre>"+imgArr.join("\n")+"</pre>",t);
     AddArray("</div><BR>endl</body></html>", t);
     d.writeln(t.join("\n"));
     d.close();
