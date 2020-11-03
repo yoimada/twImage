@@ -57,5 +57,4 @@ function AddArray(needle, array)
         if (array[i] == needle)
             return;
     array.push(needle);
-    return;
 }
