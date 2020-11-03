@@ -44,7 +44,7 @@
     var d = k.document;
     if (!d) { message.alert("fail to open Window"); }
 
-    AddArray("</div><BR><div style='background-color:#FAA'><h1>list</h1><BR>",t);
+    AddArray("</div><BR><div style='background-color:#FAA'><h1>list</h1>",t);
     AddArray("<pre>"+imgArr.join("\n")+"</pre>",t);
     AddArray("</div><BR>endl</body></html>", t);
     d.writeln(t.join("\n"));
