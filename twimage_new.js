@@ -1,10 +1,11 @@
 (function ()
 {
     //javascript:(function(){var s=document.createElement('script');s.src='https://~~.js';document.body.appendChild(s);})()
+    // or 
+    //javascript:(function() {...})();function AddArray(...{};
 
     a = new Date();
     now = a.getFullYear() + "/" + (a.getMonth() + 1) + "/" + a.getDate() + " " + a.getHours() + ":" + a.getMinutes();
-    //title = a.getFullYear() +""+ (a.getMonth() + 1) +""+ a.getDate() + "_" + a.getHours() + ".html";
 
     var t = new Array();
     //AddArray("<html><head><title>" + title + "</title></head><body>", t);
