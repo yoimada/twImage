@@ -46,7 +46,7 @@
             imgArr.push(img0);
             AddArray("<img src=" + img0 + "><BR>", t);
             
-            if (!img1)
+            if (img1)
             {
                 imgArr.push(img1);
                 AddArray("<img src=" + img1 + "><BR>", t);                
