@@ -8,7 +8,7 @@
 
     var t = new Array();
     //AddArray("<html><head><title>" + title + "</title></head><body>", t);
-    AddArray("<html><body><h1>Twitter images - v3.0 </h1><div align='right'>"+now+"</div><div style='background-color:#AFA'><h1>img</h1>", t);
+    AddArray("<html><body><h1>Twitter images - v3.1 </h1><div align='right'>"+now+"</div><div style='background-color:#AFA'><h1>img</h1>", t);
 
     var arr = document.getElementsByClassName("css-9pa8cd");
     var imgArr = new Array();
