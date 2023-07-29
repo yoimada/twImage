@@ -18,6 +18,7 @@
         {
             var url0 = arr[i].src;
             var img0 = "";
+            var img1 = "";
 
             //exclude
             if (
@@ -33,10 +34,23 @@
                 img0 = url0.replace(/format.+/, "format=jpg&name=orig");
             else if (url0.indexOf("format=png") != -1)
                 img0 = url0.replace(/format.+/, "format=png&name=orig");
+            else if (url0.indexOf("format=webp") != -1)
+            {
+                img0 = url0.replace(/format.+/, "format=png&name=orig");
+                img1 = url0.replace(/format.+/, "format=jpg&name=orig");
+            }
             else
                 img0 = url0;
+            
+
             imgArr.push(img0);
             AddArray("<img src=" + img0 + "><BR>", t);
+            
+            if (!img1)
+            {
+                imgArr.push(img1);
+                AddArray("<img src=" + img1 + "><BR>", t);                
+            }
         }
     }
 
